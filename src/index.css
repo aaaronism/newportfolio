@@ -53,20 +53,45 @@ html, body {
   justify-content: center;
 }
 
+.parr {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  opacity: 0;
+  /* position: relative; */
+  align-items: center;
+  justify-content: center;
+  transition: opacity 3s ease-in-out
+}
+
+.title {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    /* position: relative; */
+    align-items: center;
+    justify-content: center;
+  }
+
 .other {
   top: 62%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: clamp(24px, 20vw, 80px);
   opacity: 0;
-  transition: opacity 4s ease-in-out;
+  transition: opacity 3s ease-in-out;
   font-style: italic;
   color: rgba(255, 255, 255, 0.9)
 }
 
 .oh {
   opacity: 0;
-  transition: opacity 4s ease-in-out
+  transition: opacity 3s ease-in-out
+}
+
+.techdiv {
+  opacity: 0;
+  transition: opacity 3s ease-in-out
 }
 
 .fade-out {
@@ -83,35 +108,43 @@ html, body {
   height: 100vh
 }
 
+#tech {
+  position: absolute;
+  bottom: 20px
+}
+
+#tech > img {
+  padding: 20px
+}
+
 #section1 {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 #section2 {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 #section3 {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 #section4 {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
 #section5 {
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 }
 
+.cancan {
+  opacity: 0;
+  transition: opacity 1s ease-in-out
+}
 
-
-/* .cancan {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-} */
+.cancanfade {
+  opacity: 1
+}
 
 /* .textcan {
   position: relative;
@@ -139,7 +172,7 @@ html, body {
 #glow {
   color: var(--headline-color);
   filter: blur(7.5px);
-  -webkit-filter: blur(7.5px);
+  -webkit-filter: blur(10.5px);
 }
 
 #front {

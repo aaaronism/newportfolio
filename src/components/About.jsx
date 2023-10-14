@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from 'react';
 const About = () => {
   const [fadeIn, setFadeIn] = useState(false);
   const [showOh, setShowOh] = useState(false);
+  const [showTech, setshowTech] = useState(false);
   const [aDiv, setA] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const otherDivs = ['Visual Alchemist', 'Tech Tinkerer', 'Virtual Disruptor', 'Urban Explorer', 'Sunset Chaser'];
@@ -20,10 +21,14 @@ const About = () => {
       const entry = entries[0];
       if (entry.isIntersecting) {
         if (entry.target === softRef.current) {
-          setTimeout(setFadeIn(true), 3000)
-          setTimeout(setShowOh(true), 5000)
-        } else if (entry.target === aRef.current) {
+          setTimeout(() => {
+            setFadeIn(true)}, 1000)
+          setTimeout(() => {
+            setShowOh(true)}, 2500)
           setA(true);
+          setTimeout(() => {
+            setshowTech(true)}, 4000)
+        } else if (entry.target === aRef.current) {
         }
       }
     };
@@ -60,7 +65,7 @@ const About = () => {
 
   return (
     <div id="section2">
-      <div style={{ position: 'relative' }} className="par">
+      <div style={{ position: 'relative' }} className="title">
         <div
           ref={softRef}
           style={{ position: 'absolute' }}
@@ -77,6 +82,17 @@ const About = () => {
                 {text}
               </div>
             ))}
+          </div>
+          <div 
+          className={`techdiv ${showTech ? 'fade-in' : ''}`}
+          id="tech">
+            <img src="./html.png" style={{ height: '50px', width: '50px' }}/>
+            <img src="./css.png" style={{ height: '52px', width: '55px' }}/>
+            <img src="./javascript.svg" style={{ height: '50px', width: '50px' }}/>
+            <img src="./python.png" style={{ height: '53px', width: '53px' }}/>
+            <img src="./sql.png" style={{ height: '50px', width: '40px' }}/>
+            <img src="./react.png" style={{ height: '50px', width: '60px' }}/>
+            <img src="./three.png" style={{ height: '50px', width: '50px' }}/>
           </div>
       </div>
     </div>
