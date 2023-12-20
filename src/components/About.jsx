@@ -10,6 +10,14 @@ const About = () => {
   const aRef = useRef();
   const softRef = useRef();
 
+//   const mouseOver = (event) => {
+//     event.target.style.opacity = '1'
+//   }
+
+//   const mouseOut = (event) => {
+//     event.target.style.opacity = '0'
+//   }
+
   useEffect(() => {
     const options = {
       root: null,
@@ -22,12 +30,12 @@ const About = () => {
       if (entry.isIntersecting) {
         if (entry.target === softRef.current) {
           setTimeout(() => {
-            setFadeIn(true)}, 1000)
+            setFadeIn(true)}, 500)
           setTimeout(() => {
-            setShowOh(true)}, 2500)
+            setShowOh(true)}, 3000)
           setA(true);
           setTimeout(() => {
-            setshowTech(true)}, 4000)
+            setshowTech(true)}, 4500)
         } else if (entry.target === aRef.current) {
         }
       }
@@ -63,6 +71,18 @@ const About = () => {
     };
   }, []);
 
+  const toggleHoverClass = (event, isHovering) => {
+    const aElement = event.target.nextElementSibling; // Next sibling is the <a> element
+
+    if (aElement) {
+      if (isHovering) {
+        aElement.classList.add('hovered');
+      } else {
+        aElement.classList.remove('hovered');
+      }
+    }
+  };
+
   return (
     <div id="section2">
       <div style={{ position: 'relative' }} className="title">
@@ -86,13 +106,56 @@ const About = () => {
           <div 
           className={`techdiv ${showTech ? 'fade-in' : ''}`}
           id="tech">
-            <img src="./html.png" style={{ height: '50px', width: '50px' }}/>
-            <img src="./css.png" style={{ height: '52px', width: '55px' }}/>
-            <img src="./javascript.svg" style={{ height: '50px', width: '50px' }}/>
-            <img src="./python.png" style={{ height: '53px', width: '53px' }}/>
-            <img src="./sql.png" style={{ height: '50px', width: '40px' }}/>
-            <img src="./react.png" style={{ height: '50px', width: '60px' }}/>
-            <img src="./three.png" style={{ height: '50px', width: '50px' }}/>
+            <div className='te'>
+                <img src="./html.png" 
+                // onMouseOver={mouseOver} onMouseOut={mouseOut}
+                onMouseEnter={(e) => toggleHoverClass(e, true)}
+                onMouseLeave={(e) => toggleHoverClass(e, false)} 
+                style={{ height: '50px', width: '50px' }}/>
+                <a>HTML</a>
+            </div>
+            <div className='te'>
+                <img src="./css.png" 
+                onMouseEnter={(e) => toggleHoverClass(e, true)}
+                onMouseLeave={(e) => toggleHoverClass(e, false)} 
+                style={{ height: '52px', width: '55px' }}/>
+                <a>CSS</a>
+            </div>
+            <div className='te'>
+                <img src="./javascript.svg" 
+                onMouseEnter={(e) => toggleHoverClass(e, true)}
+                onMouseLeave={(e) => toggleHoverClass(e, false)}                 
+                style={{ height: '50px', width: '50px' }}/>
+                <a>JavaScript</a>
+            </div>
+            <div className='te'>
+                <img src="./python.png" 
+                onMouseEnter={(e) => toggleHoverClass(e, true)}
+                onMouseLeave={(e) => toggleHoverClass(e, false)}                 
+                style={{ height: '53px', width: '50px' }}/>
+                <a>Python</a>
+            </div>
+            <div className='te'>
+                <img src="./sql.png" 
+                onMouseEnter={(e) => toggleHoverClass(e, true)}
+                onMouseLeave={(e) => toggleHoverClass(e, false)}                 
+                style={{ height: '50px', width: '40px' }}/>
+                <a>SQL</a>
+            </div>
+            <div className='te'>
+                <img src="./react.png" 
+                onMouseEnter={(e) => toggleHoverClass(e, true)}
+                onMouseLeave={(e) => toggleHoverClass(e, false)}                 
+                style={{ height: '50px', width: '60px' }}/>
+                <a>React</a>
+            </div>
+            <div className='te'>
+                <img src="./three.png" 
+                onMouseEnter={(e) => toggleHoverClass(e, true)}
+                onMouseLeave={(e) => toggleHoverClass(e, false)}                 
+                style={{ height: '50px', width: '50px' }}/>
+                <a>Three JS</a>
+            </div>
           </div>
       </div>
     </div>

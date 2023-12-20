@@ -109,13 +109,46 @@ html, body {
 }
 
 #tech {
+  display: flex;
   position: absolute;
   bottom: 20px
 }
 
-#tech > img {
+.te > img {
+  /* position: absolute; */
+  position: relative;
+  display: flex;
   padding: 20px
 }
+
+.te > a {
+  /* position: absolute */
+  padding: 20px;
+  color: white
+}
+
+.te a {
+  opacity: 0;
+}
+
+.te a.hovered {
+  opacity: 1;
+  transition: opacity 0.2s ease-in-out
+}
+
+/* .techtext {
+  position: absolute;
+  bottom: 15px
+}
+
+.techtext > a {
+  color: white;
+  padding: 23px
+} */
+
+/* #tech > img {
+  padding: 20px
+} */
 
 #section1 {
   scroll-snap-align: center;

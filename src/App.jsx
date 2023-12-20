@@ -7,7 +7,6 @@ const App = () => {
       <div className='container'>
         <Front />
         <About />
-        <Tech />
         <Experience />
         <Contact />
       </div>
